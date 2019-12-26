@@ -4,6 +4,7 @@ const Dashboard = () => {
     return (
         <div>
             Dashboard
+            this is in dashboard too.
         </div>
     );
 };
