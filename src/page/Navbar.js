@@ -22,7 +22,7 @@ import Landing from './Landing';
 import Button from '@material-ui/core/Button';
 
 import Register from './Register';
-import Login from './Login';
+import Login from '../page/Login';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -115,10 +115,13 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Persistent drawer
+          <Typography variant="h6">
+            ACTTIME
           </Typography>
+          <Button href='/Register' variant='outlined' color='inherit' style={{marginLeft:'80%'}}>Register</Button>
+          <Button href='/login' variant='outlined' color='inherit' style={{marginLeft:'10px'}}>Login</Button>
         </Toolbar>
+        
       </AppBar>
       <Drawer
         className={classes.drawer}
