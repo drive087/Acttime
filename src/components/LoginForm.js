@@ -17,7 +17,7 @@ class LoginForm extends Component{
     const auth = fire.auth();
 
     auth.signInWithEmailAndPassword(email,pass).then((u)=>{
-        window.location = '/Dashboard';
+        
     }).catch((error) => {
         console.log(error);
     });
