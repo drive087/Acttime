@@ -11,16 +11,13 @@ class Dashboard extends Component{
         }
       }
 
-    onLogout(){
-        fire.auth().signOut();
-    }
+    
 
 
     render(){
         return(
             <div>
-                <Button variant='contained' style={{marginTop:'10px',marginLeft:'px'}} color='primary' 
-          onClick={this.onLogout} >Logout</Button>
+                Hello Fucking User!!
             </div>
         )
     }

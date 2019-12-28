@@ -19,10 +19,10 @@ class LoginForm extends Component{
     auth.signInWithEmailAndPassword(email,pass).then((u)=>{
         
     }).catch((error) => {
-        console.log(error);
+        alert('Please check your email or password');
     });
 
-    console.log('login success!!');
+    
 
     
 
