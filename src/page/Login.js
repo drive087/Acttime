@@ -14,25 +14,25 @@ class Login extends Component{
         }
       }
 
-    // componentDidMount(){
-    //     this.authListener();
-    // }
+    componentDidMount(){
+        this.authListener();
+    }
 
-    // authListener(){
-    //     fire.auth().onAuthStateChanged((user) => {
-    //         if (user){
-    //             this.setState({ user });
-    //         }else{
-    //             this.setState({user:null});
-    //         }
-    //     })
-    // }
+    authListener(){
+        fire.auth().onAuthStateChanged((user) => {
+            if (user){
+                this.setState({ user });
+            }else{
+                this.setState({user:null});
+            }
+        })
+    }
 
 
     render(){
         return(
             <div>
-                {this.state.user ? (<LoginForm />) : (<Dashboard />)}
+                {this.state.user ? (<Dashboard  />) : (<LoginForm />)}
             </div>
         )
 

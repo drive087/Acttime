@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { InputLabel, InputBase, Button ,Grid} from '@material-ui/core';
 import fire from '../config/Fire';
+import '../style.css';
 
 class RegisterForm extends Component{
 
@@ -53,7 +54,7 @@ useStyles = makeStyles(theme => ({
       marginInlineStart:'25%',
     },
     '& .MuiTextField-root': {
-      margin: theme.spacing(1),
+      margin: theme.spacing(3),
       width:'60%',
     },
     '& .MuiButton-root': {
@@ -76,16 +77,16 @@ useStyles = makeStyles(theme => ({
     const classes = this.useStyles;
     return (
       <form className={classes.root} noValidate autoComplete="off">
-        <div style={{marginLeft:'40%'}}>
-          <Grid direction='column' xs={12} sm={6}>
+        <div>
+          <Grid container direction='column' xs={12} md={6} id="GridRegister">
           {/* <Grid item><TextField id="user" label="Username" /></Grid> */}
-          <Grid item><TextField id="email" label="Email" type="email"/></Grid>
-          <Grid item><TextField type='password' id="pass" label="Password" /></Grid>
+            <Grid item><TextField id="email" fullWidth label="Email" type="email"/></Grid>
+            <Grid item><TextField type='password' fullWidth id="pass" label="Password" /></Grid>
           {/* <Grid item><InputBase  type='date' id="standard" label="Date" style={{marginLeft:'10px',marginTop:'10px'}}/></Grid> */}
-          <Grid item><TextField id="name" label="Name" /></Grid>
-          <Grid item><TextField id="sname" label="Surname" /></Grid>
-          <Button variant='contained' style={{marginTop:'10px',marginLeft:'px'}} color='primary' 
-          onClick={this.insertData} >Submit</Button>
+            <Grid item><TextField id="name" fullWidth label="Name" /></Grid>
+            <Grid item><TextField id="sname" fullWidth label="Surname" /></Grid>
+            <Button id='ButtonRegister' variant='contained' size='small' style={{marginTop:'10px'}} color='primary' 
+            onClick={this.insertData} >Submit</Button>
           </Grid>
         </div>
       </form>

@@ -21,6 +21,9 @@ import Dashboard from './Dashboard';
 import Landing from './Landing';
 import Button from '@material-ui/core/Button';
 import AboutUs from './AboutUs';
+
+import ProfileBar from '../components/ProfileBar';
+
 import Register from './Register';
 import Login from '../page/Login';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
@@ -119,8 +122,7 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6">
             ACTTIME
           </Typography>
-          <Button href='/Register' variant='outlined' color='inherit' style={{marginLeft:'80%'}}>Register</Button>
-          <Button href='/login' variant='outlined' color='inherit' style={{marginLeft:'10px'}}>Login</Button>
+          <ProfileBar/>
         </Toolbar>
         
       </AppBar>

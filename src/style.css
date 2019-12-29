@@ -1,0 +1,49 @@
+@media only screen{
+    #GridRegister{
+        margin-left: 0px;
+    }
+    #RegLogOut,#LoginButton{
+        visibility: hidden;
+    }
+
+}
+
+@media only screen and (min-width:376px){
+    #GridRegister{
+        margin-left: 0px;
+    }
+    #ButtonRegister{
+        width:200px;
+        margin-left: 70%;
+    }
+    #RegLogOut{
+        visibility:visible;
+        margin-left: 400%;
+        margin-top: 10px;
+    }
+    #LoginButton{
+        visibility:visible;
+        margin-left: 500%;
+        
+    }
+}
+
+@media only screen and (min-width:769px){
+    #GridRegister{
+        margin-left: 25%;
+    }
+    #ButtonRegister{
+        width:200px;   
+    }
+    #RegLogOut{
+        margin-left: 1200%;
+        margin-top: 10px;
+    }
+    #LoginButton{
+        margin-left: 1300%;
+        
+    }
+}
+
+
+
