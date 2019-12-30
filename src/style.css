@@ -18,13 +18,14 @@
     }
     #RegLogOut{
         visibility:visible;
-        margin-left: 400%;
-        margin-top: 10px;
+        
     }
     #LoginButton{
         visibility:visible;
-        margin-left: 500%;
-        
+                
+    }
+    #AllButtonProfile{
+        margin-left: 400px;
     }
 }
 
@@ -35,13 +36,9 @@
     #ButtonRegister{
         width:200px;   
     }
-    #RegLogOut{
-        margin-left: 1200%;
-        margin-top: 10px;
-    }
-    #LoginButton{
-        margin-left: 1300%;
-        
+    
+    #AllButtonProfile{
+        margin-left: 1100px;
     }
 }
 
