@@ -5,7 +5,7 @@ import fire from '../config/Fire';
 import LoginForm from '../components/LoginForm'
 import Dashboard from './Dashboard';
 
-class Login extends Component{
+class Createjob extends Component{
 
     constructor(props) {
         super(props);
@@ -18,9 +18,9 @@ class Login extends Component{
         this.authListener();
     }
 
-    // componentWillUnmount() {
-    //     this.unregisterAuthObserver();
-    //   }
+    componentWillUnmount() {
+        this.unregisterAuthObserver();
+      }
 
 
     authListener(){
@@ -47,4 +47,4 @@ class Login extends Component{
 
 
 
-export default Login;
+export default Createjob;

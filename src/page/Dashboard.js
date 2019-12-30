@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import fire from '../config/Fire';
+import LoginForm from '../components/LoginForm';
 import {Grid,Button} from '@material-ui/core';
 
 class Dashboard extends Component{
@@ -11,15 +12,37 @@ class Dashboard extends Component{
         }
       }
 
-    
+    componentDidMount(){
+        this.authListener();
+    }
+
+   
+
+    authListener(){
+        fire.auth().onAuthStateChanged((user) => {
+            if (user){
+                this.setState({ user });
+                console.log(fire.auth().currentUser.email);
+                
+            }else{
+                this.setState({user:null});
+                console.log('logout');
+            }
+        })
+    }
 
 
     render(){
-        return(
-            <div>
-                Hello Fucking User!!
-            </div>
-        )
+        var user = fire.auth().currentUser;
+        if(user){
+            return(<div>
+                <p>Welcome!!</p>
+                </div>);
+        }
+        return(<div>
+            <p>Out</p>
+            </div>);
+       
     }
 }
 

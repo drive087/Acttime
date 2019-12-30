@@ -22,9 +22,7 @@ class LoginForm extends Component{
         alert('Please check your email or password');
     });
 
-    
-
-    
+  
 
 }
 

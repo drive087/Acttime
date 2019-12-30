@@ -32,17 +32,25 @@ class ProfileBar extends Component{
     }
 
     render(){
-        return(
-            <div>
-                {this.state.user ? (<div>
-                <Button variant='contained' style={{marginLeft:'600%'}} color='primary' 
-          onClick={this.onLogout} >Logout</Button>
-            </div>) : (<div>
-                    <Button href='/Register' variant='outlined' color='inherit' style={{marginLeft:'600%'}}>Register</Button>
-                    <Button href='/login' variant='outlined' color='inherit' style={{marginLeft:'500%'}}>Login</Button>
-            </div>)}
-            </div>
-        )
+        var user = fire.auth().currentUser;
+        if(user){
+            return(<div>
+                <p>{fire.auth().currentUser.email}</p>
+                <Button variant="outlined" color="inherit" style={{}}  
+                onClick={this.onLogout} >Logout</Button>
+            </div>);
+        }
+        return(<div>
+            <Button href='/Register' variant='outlined' color='inherit' style={{}}>Register</Button>
+            <Button href='/login' variant='outlined' color='inherit' style={{}}>Login</Button>
+        </div>);
+
+
+
+
+
+
+        
 
         
     }

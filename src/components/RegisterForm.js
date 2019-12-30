@@ -31,11 +31,10 @@ class RegisterForm extends Component{
 
     const auth = fire.auth();
 
-    const promise = auth.createUserWithEmailAndPassword(document.getElementById('email').value,document.getElementById('pass').value);
-    
-    promise
-    .catch(e => console.log(e.message));
+    auth.createUserWithEmailAndPassword(document.getElementById('email').value,document.getElementById('pass').value);
     alert("Registration Success!!");
+    
+    fire.auth().signOut();
 
     
   }else{

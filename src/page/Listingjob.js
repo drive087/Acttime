@@ -5,7 +5,7 @@ import fire from '../config/Fire';
 import LoginForm from '../components/LoginForm'
 import Dashboard from './Dashboard';
 
-class Login extends Component{
+class Listingjob extends Component{
 
     constructor(props) {
         super(props);
@@ -35,9 +35,19 @@ class Login extends Component{
 
 
     render(){
+
+        var firebaseRef = fire.database().ref("ListingJob");
+       
+
+        firebaseRef.once('value').then(function(dataSnapshot){
+            var data = dataSnapshot.val()['Work1']['Description'];
+            
+            console.log(data);
+        })
+
         return(
             <div>
-                {this.state.user ? (<Dashboard  />) : (<LoginForm />)}
+                <p>{}</p>
             </div>
         );
 
@@ -47,4 +57,4 @@ class Login extends Component{
 
 
 
-export default Login;
+export default Listingjob;
