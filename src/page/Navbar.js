@@ -21,7 +21,7 @@ import Dashboard from './Dashboard';
 import Landing from './Landing';
 import Button from '@material-ui/core/Button';
 import AboutUs from './AboutUs';
-
+import Footer from '../components/Footer';
 import ProfileBar from '../components/ProfileBar';
 
 import Register from './Register';
@@ -33,7 +33,8 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    
+    flexDirection:'column',
+
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -122,9 +123,9 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6">
             ACTTIME
           </Typography>
-          <ProfileBar/>
+          <ProfileBar />
         </Toolbar>
-        
+
       </AppBar>
       <Drawer
         className={classes.drawer}
@@ -156,17 +157,20 @@ export default function PersistentDrawerLeft() {
       >
         <div className={classes.drawerHeader} />
         <Router>
-      
-      <div>
-        <Route exact path="/" component={Landing}/>
-        <Route path="/login" component={Login}/>
+
+          <div>
+            <Route exact path="/" component={Landing} />
+            <Route path="/login" component={Login} />
+
+            <Route path="/register" component={Register} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path='/AboutUs' component={AboutUs} />
+          </div>
+
+        </Router>
         
-        <Route path="/register" component={Register} />
-        <Route path="/dashboard" component={Dashboard}/>
-        <Route path='/AboutUs' component={AboutUs}/>
-      </div>
-    </Router>
       </main>
+      <Footer />
     </div>
   );
 }
