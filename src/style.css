@@ -1,0 +1,46 @@
+@media only screen{
+    #GridRegister{
+        margin-left: 0px;
+    }
+    #RegLogOut,#LoginButton{
+        visibility: hidden;
+    }
+
+}
+
+@media only screen and (min-width:376px){
+    #GridRegister{
+        margin-left: 0px;
+    }
+    #ButtonRegister{
+        width:200px;
+        margin-left: 70%;
+    }
+    #RegLogOut{
+        visibility:visible;
+        
+    }
+    #LoginButton{
+        visibility:visible;
+                
+    }
+    #AllButtonProfile{
+        margin-left: 400px;
+    }
+}
+
+@media only screen and (min-width:769px){
+    #GridRegister{
+        margin-left: 25%;
+    }
+    #ButtonRegister{
+        width:200px;   
+    }
+    
+    #AllButtonProfile{
+        margin-left: 1100px;
+    }
+}
+
+
+

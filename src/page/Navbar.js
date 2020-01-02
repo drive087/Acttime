@@ -20,7 +20,10 @@ import MailIcon from '@material-ui/icons/Mail';
 import Dashboard from './Dashboard';
 import Landing from './Landing';
 import Button from '@material-ui/core/Button';
+import AboutUs from './AboutUs';
+
 import ProfileBar from '../components/ProfileBar';
+
 import Register from './Register';
 import Login from '../page/Login';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
@@ -156,10 +159,11 @@ export default function PersistentDrawerLeft() {
       
       <div>
         <Route exact path="/" component={Landing}/>
-        <Route exact path="/login" component={Login}/>
+        <Route path="/login" component={Login}/>
         
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/dashboard" component={Dashboard}/>
+        <Route path="/register" component={Register} />
+        <Route path="/dashboard" component={Dashboard}/>
+        <Route path='/AboutUs' component={AboutUs}/>
       </div>
     </Router>
       </main>

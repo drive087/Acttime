@@ -32,7 +32,7 @@ class LoginForm extends Component{
     return(
         <div>
             <Grid container  alignItems="center" justify="center">
-            <Grid md={4} direction='column' alignItems="center" justify="center">
+            <Grid md={12} direction='column' alignItems="center" justify="center">
             <h1>Login ACTTIME</h1>
             <Grid item><TextField size="small" id="email" label="Email" variant="outlined" fullWidth /></Grid>
             <Grid item><TextField size="small" id="pass" label="Password" type='password' variant="outlined" style={{marginTop:'10px'}} fullWidth/></Grid>

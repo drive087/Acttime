@@ -1,33 +1,47 @@
 import React, { Component } from 'react';
-import {Grid,Button} from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import fire from '../config/Fire';
+import '../style.css';
 
-
-class ProfileBar extends Component{
-
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        height: 140,
+        width: 100,
+    },
+    control: {
+        padding: theme.spacing(2),
+    },
+}));
+class ProfileBar extends Component {
+    
+    
     constructor(props) {
         super(props);
         this.state = {
-            user:{},
+            user: {},
         }
-      }
+    }
 
-    componentDidMount(){
+    componentDidMount() {
         this.authListener();
     }
 
-    authListener(){
+    authListener() {
         fire.auth().onAuthStateChanged((user) => {
-            if (user){
+            if (user) {
                 this.setState({ user });
-            }else{
-                this.setState({user:null});
+            } else {
+                this.setState({ user: null });
             }
         })
     }
 
-    onLogout(){
+    onLogout() {
         fire.auth().signOut();
     }
 
@@ -52,7 +66,7 @@ class ProfileBar extends Component{
 
         
 
-        
+
     }
 }
 
