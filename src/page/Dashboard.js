@@ -12,37 +12,13 @@ class Dashboard extends Component{
         }
       }
 
-    componentDidMount(){
-        this.authListener();
-    }
-
-   
-
-    authListener(){
-        fire.auth().onAuthStateChanged((user) => {
-            if (user){
-                this.setState({ user });
-                console.log(fire.auth().currentUser.email);
-                
-            }else{
-                this.setState({user:null});
-                console.log('logout');
-            }
-        })
-    }
-
-
     render(){
-        var user = fire.auth().currentUser;
-        if(user){
+       
             return(<div>
                 <p>Welcome!!</p>
                 </div>);
-        }
-        return(<div>
-            <p>Out</p>
-            </div>);
-       
+        
+    
     }
 }
 

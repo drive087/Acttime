@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import  { Redirect } from 'react-router-dom'
 import {Grid,Button} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import fire from '../config/Fire';
@@ -18,15 +19,14 @@ class Login extends Component{
         this.authListener();
     }
 
-    // componentWillUnmount() {
-    //     this.unregisterAuthObserver();
-    //   }
+  
 
 
     authListener(){
         fire.auth().onAuthStateChanged((user) => {
             if (user){
                 this.setState({ user });
+                window.location.reload();
             }else{
                 this.setState({user:null});
             }
@@ -35,11 +35,20 @@ class Login extends Component{
 
 
     render(){
-        return(
-            <div>
-                {this.state.user ? (<Dashboard  />) : (<LoginForm />)}
-            </div>
-        );
+        
+        var user = fire.auth().currentUser;
+        
+        if (user){
+            console.log('login');
+            return <Redirect to='.' />;
+        }
+        
+        console.log('Notlogin');
+        return <LoginForm/>;
+
+
+
+       
 
         
     }

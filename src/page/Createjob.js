@@ -14,30 +14,13 @@ class Createjob extends Component{
         }
       }
 
-    componentDidMount(){
-        this.authListener();
-    }
-
-    componentWillUnmount() {
-        this.unregisterAuthObserver();
-      }
-
-
-    authListener(){
-        fire.auth().onAuthStateChanged((user) => {
-            if (user){
-                this.setState({ user });
-            }else{
-                this.setState({user:null});
-            }
-        })
-    }
+   
 
 
     render(){
         return(
             <div>
-                {this.state.user ? (<Dashboard  />) : (<LoginForm />)}
+                
             </div>
         );
 

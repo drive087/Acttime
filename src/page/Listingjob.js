@@ -10,40 +10,29 @@ class Listingjob extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            user:{},
+            data:{},
         }
       }
 
-    componentDidMount(){
-        this.authListener();
-    }
+ 
 
-    // componentWillUnmount() {
-    //     this.unregisterAuthObserver();
-    //   }
+    
 
+    callData(){
+        var firebaseRef = fire.database().ref("ListingJob");
+       
 
-    authListener(){
-        fire.auth().onAuthStateChanged((user) => {
-            if (user){
-                this.setState({ user });
-            }else{
-                this.setState({user:null});
-            }
+        firebaseRef.once('value').then(function(dataSnapshot){
+            var data1 = dataSnapshot.val()['Work1']['Description'];
+            console.log(data1);
+            
         })
     }
 
 
     render(){
 
-        var firebaseRef = fire.database().ref("ListingJob");
-       
-
-        firebaseRef.once('value').then(function(dataSnapshot){
-            var data = dataSnapshot.val()['Work1']['Description'];
-            
-            console.log(data);
-        })
+        this.callData();
 
         return(
             <div>

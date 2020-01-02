@@ -11,6 +11,9 @@ class LoginForm extends Component{
   }
 
   
+  
+  
+  
   onLogin(){
     var email = document.getElementById('email').value;
     var pass = document.getElementById('pass').value;
@@ -21,9 +24,7 @@ class LoginForm extends Component{
     }).catch((error) => {
         alert('Please check your email or password');
     });
-
   
-
 }
 
 
