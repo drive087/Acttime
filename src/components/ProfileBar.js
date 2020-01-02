@@ -48,9 +48,9 @@ class ProfileBar extends Component {
     render(){
         var user = fire.auth().currentUser;
         if(user){
-            return(<div>
-                <p>{fire.auth().currentUser.email}</p>
-                <Button variant="outlined" color="inherit" style={{}}  
+            return(<div style={{display:'flex',flexDirection:'row'}} id='profileNavName'>
+                <h3>{fire.auth().currentUser.email}</h3>
+                <Button variant="outlined" color="inherit" style={{marginLeft:'10px'}}  
                 onClick={this.onLogout} >Logout</Button>
             </div>);
         }
