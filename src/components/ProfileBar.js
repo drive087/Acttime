@@ -54,9 +54,9 @@ class ProfileBar extends Component {
                 onClick={this.onLogout} >Logout</Button>
             </div>);
         }
-        return(<div>
-            <Button href='/Register' variant='outlined' color='inherit' style={{}}>Register</Button>
-            <Button href='/login' variant='outlined' color='inherit' style={{}}>Login</Button>
+        return(<div style={{display:'flex',flexDirection:'row'}} id='proBarRegLog'>
+            <Button href='/Register' variant='outlined' color='inherit'>Register</Button>
+            <Button href='/login' variant='outlined' color='inherit' id='loginBut'>Login</Button>
         </div>);
 
 

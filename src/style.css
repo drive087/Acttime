@@ -46,11 +46,14 @@
         width:200px;   
     }
     
-    #AllButtonProfile{
-        margin-left: 1100px;
+    #proBarRegLog{
+        margin-left: 78%;
     }
     #FooterGrid1{
         padding-left: 10%;
+    }
+    #loginBut{
+        margin-left: 10px;
     }
 }
 
