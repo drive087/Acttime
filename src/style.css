@@ -5,7 +5,16 @@
     #RegLogOut,#LoginButton{
         visibility: hidden;
     }
-
+    #white{
+        color: white;
+    }
+    #iconSocF{
+        width:50px;
+        margin-left: 10px;
+    }
+    #FooterGrid{
+        margin-left: 2%;
+    }
 }
 
 @media only screen and (min-width:376px){
@@ -39,6 +48,9 @@
     
     #AllButtonProfile{
         margin-left: 1100px;
+    }
+    #FooterGrid1{
+        padding-left: 10%;
     }
 }
 
