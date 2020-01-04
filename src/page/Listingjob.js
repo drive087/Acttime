@@ -4,27 +4,32 @@ import TextField from '@material-ui/core/TextField';
 import fire from '../config/Fire';
 import LoginForm from '../components/LoginForm'
 import Dashboard from './Dashboard';
+import ListingjobForm from '../components/ListingjobForm';
 
 class Listingjob extends Component{
 
     constructor(props) {
         super(props);
         this.state = {
-            data:{},
+            listing:[],
         }
+
+        this.database = fire.database().ref("ListingJob");
       }
 
- 
-
     
-
-    callData(){
-        var firebaseRef = fire.database().ref("ListingJob");
-       
-
-        firebaseRef.once('value').then(function(dataSnapshot){
-            var data1 = dataSnapshot.val()['Work1']['Description'];
-            console.log(data1);
+    componentWillMount(){
+        this.database.on('value', snap =>{
+            var list2 = this.state.listing;
+            for(var x in snap.val()){
+                list2.push(snap.val()[x]);
+                
+            }
+           
+            
+            this.setState({
+                listing:list2,
+            })
             
         })
     }
@@ -32,11 +37,17 @@ class Listingjob extends Component{
 
     render(){
 
-        this.callData();
-
         return(
             <div>
-                <p>{}</p>
+                {
+            this.state.listing.map((note) => {
+              return (
+                <ListingjobForm Employee = {note.Employee}
+                Description={note.Description}
+                Date={note.Date} />
+              )
+            })
+          }
             </div>
         );
 

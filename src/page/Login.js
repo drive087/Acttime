@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import fire from '../config/Fire';
 import LoginForm from '../components/LoginForm'
 import Dashboard from './Dashboard';
+import RegisterForm from '../components/RegisterForm';
 
 class Login extends Component{
 
@@ -19,14 +20,16 @@ class Login extends Component{
         this.authListener();
     }
 
-  
+    
+
 
 
     authListener(){
         fire.auth().onAuthStateChanged((user) => {
             if (user){
                 this.setState({ user });
-                window.location.reload();
+                this.render();
+
             }else{
                 this.setState({user:null});
             }
@@ -40,11 +43,14 @@ class Login extends Component{
         
         if (user){
             console.log('login');
-            return <Redirect to='.' />;
+            return <LoginForm />;
+        }
+        else{
+            console.log('Notlogin');
+            return <LoginForm />;
         }
         
-        console.log('Notlogin');
-        return <LoginForm/>;
+        
 
 
 

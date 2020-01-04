@@ -163,7 +163,6 @@ export default function PersistentDrawerLeft() {
             <Route path="/login" component={Login} />
 
             <Route path="/register" component={Register} />
-            <Route path="/dashboard" component={Dashboard} />
             <Route path='/AboutUs' component={AboutUs} />
           </div>
 
