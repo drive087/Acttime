@@ -10,7 +10,6 @@ class RegisterForm extends Component{
   constructor(props) {
     super(props);
     this.insertData = this.insertData.bind(this);
-    this.useStyles = this.useStyles.bind(this);
   }
 
   insertData() {
@@ -46,23 +45,6 @@ class RegisterForm extends Component{
 
 
 
-useStyles = makeStyles(theme => ({
-  root: {
-    '& .MuiGrid-root': {
-      margin: theme.spacing(1),
-      marginInlineStart:'25%',
-    },
-    '& .MuiTextField-root': {
-      margin: theme.spacing(3),
-      width:'60%',
-    },
-    '& .MuiButton-root': {
-      margin: theme.spacing(1),
-      marginInlineStart:'25%',
-    }
-  },
-  
-}));
 
 
 // RegisterForm = () => {
@@ -73,11 +55,11 @@ useStyles = makeStyles(theme => ({
 // <form className={classes.root} noValidate autoComplete="off">
   render(){
 
-    const classes = this.useStyles;
     return (
-      <form className={classes.root} noValidate autoComplete="off">
+      <form noValidate autoComplete="on" style={{minHeight:"520px"}}>
         <div>
           <Grid container direction='column' xs={12} md={6} id="GridRegister">
+            <Grid item><h1>Register</h1></Grid>
           {/* <Grid item><TextField id="user" label="Username" /></Grid> */}
             <Grid item><TextField id="email" fullWidth label="Email" type="email"/></Grid>
             <Grid item><TextField type='password' fullWidth id="pass" label="Password" /></Grid>

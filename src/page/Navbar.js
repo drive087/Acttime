@@ -150,15 +150,7 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
       </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className={classes.drawerHeader} />
-        
-        
-      </main>
+      
       <Router>
 
           <div>
