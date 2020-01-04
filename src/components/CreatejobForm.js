@@ -5,8 +5,10 @@ import DateFnsUtils from '@date-io/date-fns';
 import fire from '../config/Fire';
 import {
     KeyboardDatePicker,
+    KeyboardTimePicker,
     MuiPickersUtilsProvider,
 } from '@material-ui/pickers';
+import TextareaAutosize from 'react-textarea-autosize';
 
 class CreatejobForm extends Component{
 
@@ -15,32 +17,43 @@ class CreatejobForm extends Component{
     this.onCreatejob = this.onCreatejob.bind(this);
     this.state = {
         selectedDate: null,
+        selectedBegintime: null,
+        selectedEndtime: null,
     }
   }
 
-  formatDate(date) {
-    var d = new Date(date),
+    formatDate(date) {
+        var d = new Date(date),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();
 
-    if (month.length < 2)
-        month = '0' + month;
-    if (day.length < 2)
-        day = '0' + day;
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
 
-    return [year, month, day].join('-');
+        return [year, month, day].join('-');
 }
   
-  handleDateChange = date => {
+    handleDateChange = date => {
     
     
         const newdate = this.formatDate(date);
         this.setState({
             selectedDate: newdate
         })
-    
-}
+    }
+    handleBeginTimeChange = time => {
+        this.setState({
+            selectedBegintime: time
+        })
+    } 
+    handleEndTimeChange = time => {
+        this.setState({
+            selectedEndtime: time
+        })
+    }       
  
   
   onCreatejob(){
@@ -48,8 +61,13 @@ class CreatejobForm extends Component{
     var jobdes = document.getElementById('jobdescription').value;
     var wages = document.getElementById('wages').value;
     var amount = document.getElementById('amount').value;
+    var location = document.getElementById('location').value;
+    var begintime = document.getElementById('timebegin').value;
+    var endtime = document.getElementById('timeend').value;
     var date = this.state.selectedDate;
     const auth = fire.auth();
+
+    console.log(jobname);
 
     var firebaseRef = fire.database().ref('ListingJob');
   
@@ -59,6 +77,9 @@ class CreatejobForm extends Component{
         Wages:wages,
         Amount:amount,
         Date:date,
+        Location:location,
+        Begintime:begintime,
+        Endtime:endtime,
         Employee:auth.currentUser.email
       });
 
@@ -75,29 +96,71 @@ class CreatejobForm extends Component{
                 <Grid xs={12} md={8}>
                     <Grid style={{ margin: '16px',display:'flex',direction:'column' }}>
                         <h3>Jobname : </h3>
-                        <TextField name='Jobname' label="Jobname" variant="outlined" style={{marginLeft:'20px'}}onChange={handleOnChange} />
-                    </Grid>
-                    <Grid style={{ margin: '16px',display:'flex',direction:'column' }}>
-                        <h3>Time :</h3>
-                        <TextField name='time1' variant="outlined" type='time'  />
-                        <h3>to</h3>
-                        <TextField name='time2' variant="outlined" type='time'  />
-                        <h3>Date :</h3>
-                        <TextField name='date1' variant="outlined" type='date'  />
-                        <h3>to</h3>
-                        <TextField name='date2' variant="outlined" type='date' />
-                    </Grid>
-                    <Grid style={{ margin: '16px' }}>
-                        <TextField name='price' label="Price" variant="outlined" type='number' onChange={handleOnChange} />
-                        <TextField name='people' label="People" variant="outlined" type='number' style={{marginLeft:'16px'}} onChange={handleOnChange} />
-                        <TextField name='location' label="location" variant="outlined" style={{marginLeft:'16px'}} onChange={handleOnChange} />
+                        <TextField name='Jobname' id="jobname" variant="outlined" style={{marginLeft:'20px'}} />
                     </Grid>
                     <Grid style={{ margin: '16px' }}>
                         <h3>Detail :</h3>
-                        <TextareaAutosize rowsMin={10} style={{width:'100%'}} name='detail' label="Detail" variant="outlined" onChange={handleOnChange} />
+                        <TextareaAutosize rowsMin={10} style={{width:'100%',height:'100%'}} name='detail' id="jobdescription" label="Detail" variant="outlined" />
                     </Grid>
+                    <Grid style={{ margin: '16px',display:'flex',direction:'column' }}>
+                        <h3>Time :</h3>
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <KeyboardTimePicker
+                                margin="normal"
+                                id='timebegin'
+                                label="Time picker"
+                                value={this.state.selectedBegintime}
+                                onChange={this.handleBeginTimeChange}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change time',
+                                }}
+                            />
+                        </MuiPickersUtilsProvider>
+                        
+                
+                        <h3>to</h3>
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <KeyboardTimePicker
+                                margin="normal"
+                                id='timeend'
+                                label="Time picker"
+                                value={this.state.selectedEndtime}
+                                onChange={this.handleEndTimeChange}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change time',
+                                }}
+                            />
+                        </MuiPickersUtilsProvider>
+                    </Grid>
+                    <Grid style={{ margin: '16px',display:'flex',direction:'column' }}>
+                        <h3>Date</h3>
+
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <Grid>
+                            <KeyboardDatePicker
+                                disableToolbar
+                                variant="inline"
+                                format="MM/dd/yyyy"
+                                margin="normal"
+                                id="date-picker-inline"
+                                label="Select Work Date"
+                                value={this.state.selectedDate}
+                                onChange={this.handleDateChange}
+                                KeyboardButtonProps={{
+                                    'aria-label': 'change date',
+                                }}
+                                /> 
+                            </Grid>
+                        </MuiPickersUtilsProvider>
+                    </Grid>
+                    <Grid style={{ margin: '16px' }}>
+                        <TextField name='wages' id='wages' label="Wages (Baht)" variant="outlined" type='number'  />
+                        <TextField name='people' id='amount' label="Limited Person" variant="outlined" type='number' style={{marginLeft:'16px'}} />
+                        <TextField name='location' id='location' label="Location" variant="outlined" style={{marginLeft:'16px'}}  />
+                    </Grid>
+                    
                     <Grid style={{ margin: '16px',right:'0px',float:'right'}}>
-                    <Button variant="contained" color="primary" style={{}}>Submit</Button>
+                    <Button variant="contained" color="primary" style={{}} onClick={this.onCreatejob}>Submit</Button>
                     </Grid>
                 </Grid>
             </form>

@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import fire from '../config/Fire';
 import LoginForm from '../components/LoginForm'
 import Dashboard from './Dashboard';
+import { Container } from '@material-ui/core';
 import RegisterForm from '../components/RegisterForm';
 
 class Login extends Component{
@@ -48,7 +49,12 @@ class Login extends Component{
         }
         else{
             console.log('Notlogin');
-            return <LoginForm />;
+            return (<div>
+                <Container>
+                    <h1>Login</h1>
+                    <LoginForm/>
+                </Container>
+            </div>);
         }
         
         

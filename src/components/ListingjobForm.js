@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
-import { InputLabel, InputBase, Button ,Grid} from '@material-ui/core';
+import { InputLabel, InputBase, Card ,Grid} from '@material-ui/core';
 import fire from '../config/Fire';
 import { styled } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -13,9 +13,12 @@ class ListingjobForm extends Component{
     super(props);
     this.Jobname = props.Jobname
     this.Jobdes = props.Jobdes; 
-    this.Wages = props.DatWagese;   
+    this.Wages = props.Wages;   
     this.Amount = props.Amount
     this.Date = props.Date; 
+    this.Begintime = props.Begintime;
+    this.Endtime = props.Endtime;
+    this.Location = props.Location;
     this.Employee = props.Employee;    
 
   }
@@ -24,17 +27,20 @@ class ListingjobForm extends Component{
 
   render(){
     return(
-      <Grid container spacing={1}>
+      <Card >
         <div>
-            <p>{this.Jobname}</p>
-            <p>{this.Jobdes}</p>
-            <p>{this.Wages}</p>
-            <p>{this.Amount}</p>
-            <p>{this.Date}</p>
-            <p>{this.Employee}</p>
+            <p>Title:{this.Jobname}</p>
+            <p>Description:{this.Jobdes}</p>
+            <p>Wages:{this.Wages}</p>
+            <p>Limited:{this.Amount}</p>
+            <p>Date{this.Date}</p>
+            <p>BeginTime:{this.Begintime}</p>
+            <p>EndTime:{this.Endtime}</p>
+            <p>Location:{this.Location}</p>
+            <p>Employee:{this.Employee}</p>
         </div>
       
-      </Grid>
+      </Card>
     )
 }
 
@@ -46,6 +52,9 @@ ListingjobForm.propTypes = {
     Wages: PropTypes.string,
     Amount: PropTypes.string,
     Date: PropTypes.string,
+    Begintime: PropTypes.string,
+    Endtime: PropTypes.string,
+    Location: PropTypes.string,
     Employee: PropTypes.string
 }
 export default ListingjobForm;

@@ -40,20 +40,25 @@ class Listingjob extends Component{
             <div>
                 {
             this.state.listing.map((notes) => {
-              return (
+              return (<div>
                 <ListingjobForm 
                 Jobname = {notes.Jobname}
                 Jobdes = {notes.Jobdes}
-                Wages = {notes.DatWagese}
+                Wages = {notes.Wages}
                 Amount = {notes.Amount}
                 Date = {notes.Date}
+                Begintime = {notes.Begintime}
+                Endtime = {notes.Endtime}
+                Location = {notes.Location}
                 Employee = {notes.Employee}
                 />
-                
-              )
-            })
-          }
+                <br/>
+                </div>
+                    )
+                })
+                }
             </div>
+            
         );
     }
 }

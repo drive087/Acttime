@@ -20,7 +20,7 @@ const FirstLanding = () => {
                     </Grid>
                 </Grid>
             </Paper>
-            <CreatejobForm/>
+          
         </div>
     );
 };
