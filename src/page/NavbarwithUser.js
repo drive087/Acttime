@@ -24,6 +24,8 @@ import ProfileBar from '../components/ProfileBar';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import Listingjob from './Listingjob';
 import Createjob from './Createjob';
+import Footer from '../components/Footer';
+
 
 const drawerWidth = 240;
 
@@ -161,6 +163,7 @@ export default function PersistentDrawerLeft() {
         <Route exact path="/dashboard" component={Dashboard}/>
       </div>
     </Router>
+    <Footer />
       </main>
     </div>
   );

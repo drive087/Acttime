@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
+import  { Redirect } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import fire from '../config/Fire';
 import '../style.css';
@@ -53,7 +54,7 @@ class ProfileBar extends Component {
             return(<div style={{display:'flex',flexDirection:'row'}} id='profileNavName'>
                 <h3>{fire.auth().currentUser.email}</h3>
                 <Button variant="outlined" color="inherit" style={{marginLeft:'10px'}}  
-                onClick={this.onLogout} >Logout</Button>
+                onClick={this.onLogout} href='/' >Logout</Button>
             </div>);
         }
         return(<div style={{display:'flex',flexDirection:'row'}} id='proBarRegLog'>

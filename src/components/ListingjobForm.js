@@ -33,7 +33,7 @@ class ListingjobForm extends Component{
             <p>Description:{this.Jobdes}</p>
             <p>Wages:{this.Wages}</p>
             <p>Limited:{this.Amount}</p>
-            <p>Date{this.Date}</p>
+            <p>Date:{this.Date}</p>
             <p>BeginTime:{this.Begintime}</p>
             <p>EndTime:{this.Endtime}</p>
             <p>Location:{this.Location}</p>

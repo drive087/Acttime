@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import { InputLabel, InputBase, Button ,Grid} from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
 import fire from '../config/Fire';
+import  { Redirect } from 'react-router-dom';
 import {
     KeyboardDatePicker,
     KeyboardTimePicker,
@@ -16,6 +17,7 @@ class CreatejobForm extends Component{
     super(props);
     this.onCreatejob = this.onCreatejob.bind(this);
     this.state = {
+        User:{},
         selectedDate: null,
         selectedBegintime: null,
         selectedEndtime: null,
@@ -81,7 +83,13 @@ class CreatejobForm extends Component{
         Begintime:begintime,
         Endtime:endtime,
         Employee:auth.currentUser.email
-      });
+      }).then(
+          <Redirect to='/dashboard' />);
+
+      
+    alert("Success!!");
+
+    
 
     }
 
@@ -160,7 +168,7 @@ class CreatejobForm extends Component{
                     </Grid>
                     
                     <Grid style={{ margin: '16px',right:'0px',float:'right'}}>
-                    <Button variant="contained" color="primary" style={{}} onClick={this.onCreatejob}>Submit</Button>
+                    <Button variant="contained" color="primary" style={{}} onClick={this.onCreatejob} href='/Dashboard'>Submit</Button>
                     </Grid>
                 </Grid>
             </form>
