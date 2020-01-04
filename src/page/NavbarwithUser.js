@@ -23,6 +23,7 @@ import Button from '@material-ui/core/Button';
 import ProfileBar from '../components/ProfileBar';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import Listingjob from './Listingjob';
+import Createjob from './Createjob';
 
 const drawerWidth = 240;
 
@@ -139,6 +140,7 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           <ListItem><ListItemText><Button href='/Dashboard'>Home</Button></ListItemText></ListItem>
+          <ListItem><ListItemText><Button href='/Createjob'>CreateJob</Button></ListItemText></ListItem>
           <ListItem><ListItemText><Button href='/Listingjob'>ListingJob</Button></ListItemText></ListItem>
           <ListItem><ListItemText><Button href='/AboutUs'>AboutUs</Button></ListItemText></ListItem>
         </List>
@@ -154,6 +156,7 @@ export default function PersistentDrawerLeft() {
       
       <div>
         <Route exact path="/" component={Landing}/>
+        <Route exact path="/createjob" component={Createjob}/>
         <Route exact path="/listingjob" component={Listingjob}/>
         <Route exact path="/dashboard" component={Dashboard}/>
       </div>

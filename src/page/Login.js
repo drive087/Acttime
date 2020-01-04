@@ -14,6 +14,7 @@ class Login extends Component{
         this.state = {
             user:{},
         }
+        
       }
 
     componentDidMount(){
@@ -43,7 +44,7 @@ class Login extends Component{
         
         if (user){
             console.log('login');
-            return <LoginForm />;
+            return <Redirect to='/dashboard'  />;
         }
         else{
             console.log('Notlogin');

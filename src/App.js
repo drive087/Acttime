@@ -33,9 +33,16 @@ class App extends Component{
 
 
     render(){
+
+        var user = fire.auth().currentUser;
+
+        if(user){
+            return(<div><NavbarwithUser/></div>);
+        }
+
         return(
             <div>
-                {this.state.user ? (<NavbarwithUser/>) : (<Navbar/>)}
+                {(<Navbar/>)}
             </div>
         );
 

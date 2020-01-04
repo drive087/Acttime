@@ -24,8 +24,7 @@ class Listingjob extends Component{
             for(var x in snap.val()){
                 list2.push(snap.val()[x]);
                 
-            }
-           
+            }         
             
             this.setState({
                 listing:list2,
@@ -40,18 +39,22 @@ class Listingjob extends Component{
         return(
             <div>
                 {
-            this.state.listing.map((note) => {
+            this.state.listing.map((notes) => {
               return (
-                <ListingjobForm Employee = {note.Employee}
-                Description={note.Description}
-                Date={note.Date} />
+                <ListingjobForm 
+                Jobname = {notes.Jobname}
+                Jobdes = {notes.Jobdes}
+                Wages = {notes.DatWagese}
+                Amount = {notes.Amount}
+                Date = {notes.Date}
+                Employee = {notes.Employee}
+                />
+                
               )
             })
           }
             </div>
         );
-
-        
     }
 }
 

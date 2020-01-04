@@ -25,6 +25,7 @@ class ProfileBar extends Component {
         this.state = {
             user: {},
         }
+        this.isLogin = props.isLogin;
     }
 
     componentDidMount() {
@@ -47,6 +48,7 @@ class ProfileBar extends Component {
 
     render(){
         var user = fire.auth().currentUser;
+        
         if(user){
             return(<div>
                 <p>{fire.auth().currentUser.email}</p>
@@ -58,15 +60,6 @@ class ProfileBar extends Component {
             <Button href='/Register' variant='outlined' color='inherit' style={{}}>Register</Button>
             <Button href='/login' variant='outlined' color='inherit' style={{}}>Login</Button>
         </div>);
-
-
-
-
-
-
-        
-
-
     }
 }
 
