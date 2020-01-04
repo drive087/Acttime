@@ -44,7 +44,11 @@ class Login extends Component{
         }
         
         console.log('Notlogin');
-        return <LoginForm/>;
+        return (
+            <div style={{marginTop:'15%',marginLeft:"40%"}}>
+            <LoginForm/>
+            </div>
+        );
 
 
 
