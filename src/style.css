@@ -2,9 +2,11 @@
     #GridRegister{
         margin-left: 0px;
     }
-    #RegLogOut,#LoginButton{
+    
+    #proBarRegLog,#profileNavName{
         visibility: hidden;
     }
+    
     #white{
         color: white;
     }
@@ -25,16 +27,13 @@
         width:200px;
         margin-left: 70%;
     }
-    #RegLogOut{
-        visibility:visible;
-        
+    #proBarRegLog{
+        visibility: visible;
+        margin-left: 78%;
     }
-    #LoginButton{
-        visibility:visible;
-                
-    }
-    #AllButtonProfile{
-        margin-left: 400px;
+    #profileNavName{
+        margin-left: 40%;
+        visibility: visible;
     }
 }
 
@@ -46,11 +45,17 @@
         width:200px;   
     }
     
-    #AllButtonProfile{
-        margin-left: 1100px;
+    #proBarRegLog{
+        margin-left: 78%;
+    }
+    #profileNavName{
+        margin-left: 70%;
     }
     #FooterGrid1{
         padding-left: 10%;
+    }
+    #loginBut{
+        margin-left: 10px;
     }
 }
 

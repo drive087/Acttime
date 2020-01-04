@@ -150,13 +150,8 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
       </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className={classes.drawerHeader} />
-        <Router>
+      
+      <Router>
 
           <div>
             <Route exact path="/" component={Landing} />
@@ -167,8 +162,6 @@ export default function PersistentDrawerLeft() {
           </div>
 
         </Router>
-        
-      </main>
       <Footer />
     </div>
   );

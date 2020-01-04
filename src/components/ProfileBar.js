@@ -50,15 +50,15 @@ class ProfileBar extends Component {
         var user = fire.auth().currentUser;
         
         if(user){
-            return(<div>
-                <p>{fire.auth().currentUser.email}</p>
-                <Button variant="outlined" color="inherit" style={{}}  
+            return(<div style={{display:'flex',flexDirection:'row'}} id='profileNavName'>
+                <h3>{fire.auth().currentUser.email}</h3>
+                <Button variant="outlined" color="inherit" style={{marginLeft:'10px'}}  
                 onClick={this.onLogout} >Logout</Button>
             </div>);
         }
-        return(<div>
-            <Button href='/Register' variant='outlined' color='inherit' style={{}}>Register</Button>
-            <Button href='/login' variant='outlined' color='inherit' style={{}}>Login</Button>
+        return(<div style={{display:'flex',flexDirection:'row'}} id='proBarRegLog'>
+            <Button href='/Register' variant='outlined' color='inherit'>Register</Button>
+            <Button href='/login' variant='outlined' color='inherit' id='loginBut'>Login</Button>
         </div>);
     }
 }
