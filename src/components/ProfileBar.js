@@ -54,7 +54,7 @@ class ProfileBar extends Component {
             return(<div style={{display:'flex',flexDirection:'row'}} id='profileNavName'>
                 <h3>{fire.auth().currentUser.email}</h3>
                 <Button variant="outlined" color="inherit" style={{marginLeft:'10px'}}  
-                onClick={this.onLogout} href='/' >Logout</Button>
+                onClick={this.onLogout} href='/' size='small' >Logout</Button>
             </div>);
         }
         return(<div style={{display:'flex',flexDirection:'row'}} id='proBarRegLog'>

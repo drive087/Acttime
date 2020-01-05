@@ -21,6 +21,20 @@
         width:80%;
         padding:1%;
     }
+    #GetJob{
+        background-color:green;
+        color:white;
+
+    }
+    #Footer{
+        position:fixed;
+        left:0;
+        bottom:0;
+        width:100%;
+    }
+    #JobCard{
+        margin-bottom:100px;
+    }
 }
 
 @media only screen and (min-width:376px){

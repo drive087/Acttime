@@ -162,7 +162,7 @@ export default function PersistentDrawerLeft() {
           </div>
 
         </Router>
-      <Footer />
+      <Footer id='Footer'/>
     </div>
   );
 }
