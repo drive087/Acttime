@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
-import { InputLabel, InputBase, Card ,Grid} from '@material-ui/core';
+import { InputLabel, InputBase, Card ,Grid,Button} from '@material-ui/core';
 import fire from '../config/Fire';
 import { styled } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-
+import '../style.css';
 
 
 class ListingjobForm extends Component{
@@ -27,10 +27,12 @@ class ListingjobForm extends Component{
 
   render(){
     return(
-      <Card >
+      <Card id="ListingJobForm">
         <div>
-            <p>Title:{this.Jobname}</p>
-            <p>Description:{this.Jobdes}</p>
+          <Grid style={{display:'flex'}}>
+            <Grid item md={10}>
+            <h1>Title : {this.Jobname}</h1>
+            <h3>Description : {this.Jobdes}</h3>
             <p>Wages:{this.Wages}</p>
             <p>Limited:{this.Amount}</p>
             <p>Date:{this.Date}</p>
@@ -38,6 +40,11 @@ class ListingjobForm extends Component{
             <p>EndTime:{this.Endtime}</p>
             <p>Location:{this.Location}</p>
             <p>Employee:{this.Employee}</p>
+            </Grid>
+            <Grid item md={2}>
+              <Button color="secondary" variant="contained">Delete Job</Button>
+            </Grid>
+          </Grid>        
         </div>
       
       </Card>
