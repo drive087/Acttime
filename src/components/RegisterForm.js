@@ -16,17 +16,31 @@ class RegisterForm extends Component{
     var firebaseRef = fire.database().ref('User');
     var email = document.getElementById('email').value;
     var pass = document.getElementById('pass').value;
+    var name = document.getElementById('name').value;
+    var surname = document.getElementById('sname').value;
 
     if(email.includes('@') && pass.length >=6){ 
 
+    console.log('1');  
+    var indexofat = email.indexOf('@');
+    var subemail = email.substring(0,indexofat);
 
-    firebaseRef.push({
-      Email:document.getElementById('email').value,
-      Password:document.getElementById('pass').value,
-      Name:document.getElementById('name').value,
-      Surname:document.getElementById('sname').value
-    });
-    console.log(document.getElementById('email').value);
+    
+    firebaseRef.child(subemail).set('Root');
+    var firebaseRefbyemail = fire.database().ref(subemail);
+    console.log('2');
+    
+    firebaseRefbyemail.child('Name').set(name);
+    firebaseRefbyemail.child('Password').set(pass);
+    firebaseRefbyemail.child('Surname').set(surname);
+
+    // firebaseRefbyemail.push({
+    //   Password:pass,
+    //   Name:name,
+    //   Surname:surname
+    // })
+
+  
     
 
     const auth = fire.auth();
