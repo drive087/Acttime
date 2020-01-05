@@ -173,7 +173,7 @@ class CreatejobForm extends Component{
                         </Grid>
                         
                         <Grid style={{ margin: '16px',right:'0px',float:'right'}}>
-                        <Button variant="contained" color="primary" style={{}} onClick={this.onCreatejob} >Submit</Button>
+                        <Button variant="contained" color="primary" onClick={this.onCreatejob} >Submit</Button>
                         </Grid>
                     </Grid>
                 </form>

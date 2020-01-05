@@ -22,7 +22,7 @@ class Dashboard extends Component{
                 <h1>Find Job</h1>
                 <TextField id="filled-search" label="Search field" type="search" variant="outlined" />
                 <p>heve to make search real time</p>
-                <JobCard name="Google"/>
+                <JobCard name="Google" time='14::00 pm' date='13 friday' location='chula' sex='male' price='100 bath' people='10' detail='this is the detail that i want to tell you' />
                 
 
             </div>);
