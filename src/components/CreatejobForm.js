@@ -109,11 +109,11 @@ class CreatejobForm extends Component{
                     <Grid xs={12} md={8}>
                         <Grid style={{ margin: '16px',display:'flex',direction:'column' }}>
                             <h3>Jobname : </h3>
-                            <TextField name='Jobname' id="jobname" variant="outlined" style={{marginLeft:'20px'}} />
+                            <TextField name='Jobname' id="jobname" variant="outlined" margin='dense' style={{marginLeft:'20px'}} />
                         </Grid>
                         <Grid style={{ margin: '16px' }}>
                             <h3>Detail :</h3>
-                            <TextareaAutosize rowsMin={10} style={{width:'100%',height:'100%'}} name='detail' id="jobdescription" label="Detail" variant="outlined" />
+                            <TextareaAutosize rowsMin={10} rowsMax={10} style={{width:'100%',height:'100%'}} name='detail' id="jobdescription" label="Detail"/>
                         </Grid>
                         <Grid style={{ margin: '16px',display:'flex',direction:'column' }}>
                             <h3>Time :</h3>
@@ -173,7 +173,7 @@ class CreatejobForm extends Component{
                         </Grid>
                         
                         <Grid style={{ margin: '16px',right:'0px',float:'right'}}>
-                        <Button variant="contained" color="primary" style={{}} onClick={this.onCreatejob} >Submit</Button>
+                        <Button variant="contained" color="primary" onClick={this.onCreatejob} >Submit</Button>
                         </Grid>
                     </Grid>
                 </form>

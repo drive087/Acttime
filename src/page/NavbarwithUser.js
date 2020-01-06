@@ -25,6 +25,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import Listingjob from './Listingjob';
 import Createjob from './Createjob';
 import Footer from '../components/Footer';
+import '../style.css';
 
 
 const drawerWidth = 240;
@@ -32,6 +33,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    flexDirection:'column',
     
   },
   appBar: {
@@ -148,23 +150,20 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
       </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className={classes.drawerHeader} />
-        <Router>
       
-      <div>
+        <Router>
+        <div>
         <Route exact path="/" component={Landing}/>
-        <Route exact path="/createjob" component={Createjob}/>
-        <Route exact path="/listingjob" component={Listingjob}/>
-        <Route exact path="/dashboard" component={Dashboard}/>
+        <Route path="/createjob" component={Createjob}/>
+        <Route path="/listingjob" component={Listingjob}/>
+        <Route path="/dashboard" component={Dashboard}/>
       </div>
     </Router>
-    <Footer />
-      </main>
+    <Footer id='Footer'/>
+      
+      
+      
+    
     </div>
   );
 }

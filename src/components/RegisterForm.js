@@ -72,7 +72,7 @@ class RegisterForm extends Component{
     return (
       <form noValidate autoComplete="on" style={{minHeight:"520px"}}>
         <div>
-          <Grid container direction='column' xs={12} md={6} id="GridRegister">
+          <Grid container direction='column' xs={12} md={6} id="GridRegister" spacing={2}>
             <Grid item><h1>Register</h1></Grid>
           {/* <Grid item><TextField id="user" label="Username" /></Grid> */}
             <Grid item><TextField id="email" fullWidth label="Email" type="email"/></Grid>

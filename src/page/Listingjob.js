@@ -37,10 +37,12 @@ class Listingjob extends Component{
     render(){
 
         return(
-            <div>
+            <div style={{marginLeft:'15%',marginTop:'5%'}}>
+                <h1>Listing Job</h1>
                 {
             this.state.listing.map((notes) => {
-              return (<div>
+              return (
+              <div>
                 <ListingjobForm 
                 Jobname = {notes.Jobname}
                 Jobdes = {notes.Jobdes}
