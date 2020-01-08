@@ -4,12 +4,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import { InputLabel, InputBase, Button ,Grid} from '@material-ui/core';
 import fire from '../config/Fire';
 import '../style.css';
+import  { Redirect } from 'react-router-dom';
+
 
 class RegisterForm extends Component{
 
   constructor(props) {
     super(props);
     this.insertData = this.insertData.bind(this);
+
+    this.state = {
+        Checkregister:false
+    }
+    
   }
 
   insertData() {
@@ -26,21 +33,20 @@ class RegisterForm extends Component{
     var subemail = email.substring(0,indexofat);
 
     
-    firebaseRef.child(subemail).set('Root');
+    firebaseRef.child(subemail).update({
+      Name:name,
+      Password:pass,
+      Surname:surname,
+      Currentjobcreated:'',
+      Currentjob:'',
+      Historyjob:'',
+      Historyjobcreated:''
+      
+
+    });
+    
     var firebaseRefbyemail = fire.database().ref(subemail);
     console.log('2');
-    
-    firebaseRefbyemail.child('Name').set(name);
-    firebaseRefbyemail.child('Password').set(pass);
-    firebaseRefbyemail.child('Surname').set(surname);
-
-    // firebaseRefbyemail.push({
-    //   Password:pass,
-    //   Name:name,
-    //   Surname:surname
-    // })
-
-  
     
 
     const auth = fire.auth();
@@ -49,6 +55,9 @@ class RegisterForm extends Component{
     alert("Registration Success!!");
     
     fire.auth().signOut();
+    this.setState({
+      Checkregister:true
+    })
 
     
   }else{
@@ -67,26 +76,30 @@ class RegisterForm extends Component{
     
   
 // <form className={classes.root} noValidate autoComplete="off">
-  render(){
-
-    return (
-      <form noValidate autoComplete="on" style={{minHeight:"520px"}}>
-        <div>
-          <Grid container direction='column' xs={12} md={6} id="GridRegister" spacing={2}>
-            <Grid item><h1>Register</h1></Grid>
-          {/* <Grid item><TextField id="user" label="Username" /></Grid> */}
-            <Grid item><TextField id="email" fullWidth label="Email" type="email"/></Grid>
-            <Grid item><TextField type='password' fullWidth id="pass" label="Password" /></Grid>
-          {/* <Grid item><InputBase  type='date' id="standard" label="Date" style={{marginLeft:'10px',marginTop:'10px'}}/></Grid> */}
-            <Grid item><TextField id="name" fullWidth label="Name" /></Grid>
-            <Grid item><TextField id="sname" fullWidth label="Surname" /></Grid>
-            <Button id='ButtonRegister' variant='contained' size='small' style={{marginTop:'10px'}} color='primary' 
-            onClick={this.insertData} >Submit</Button>
-          </Grid>
-        </div>
-      </form>
-  );
-  }
+    render(){
+      
+      if(!this.state.Checkregister){
+          return (
+            <form noValidate autoComplete="on" style={{minHeight:"520px"}}>
+              <div>
+                <Grid container direction='column' xs={12} md={6} id="GridRegister" spacing={2}>
+                  <Grid item><h1>Register</h1></Grid>
+                {/* <Grid item><TextField id="user" label="Username" /></Grid> */}
+                  <Grid item><TextField id="email" fullWidth label="Email" type="email"/></Grid>
+                  <Grid item><TextField type='password' fullWidth id="pass" label="Password" /></Grid>
+                {/* <Grid item><InputBase  type='date' id="standard" label="Date" style={{marginLeft:'10px',marginTop:'10px'}}/></Grid> */}
+                  <Grid item><TextField id="name" fullWidth label="Name" /></Grid>
+                  <Grid item><TextField id="sname" fullWidth label="Surname" /></Grid>
+                  <Button id='ButtonRegister' variant='contained' size='small' style={{marginTop:'10px'}} color='primary' 
+                  onClick={this.insertData} >Submit</Button>
+                </Grid>
+              </div>
+            </form>
+        );
+      }
+      return (<Redirect to='/' />);
+      
+    }
     
 // };
 

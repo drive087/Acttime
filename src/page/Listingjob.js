@@ -41,6 +41,7 @@ class Listingjob extends Component{
                 <h1>Listing Job</h1>
                 {
             this.state.listing.map((notes) => {
+                
               return (
               <div>
                 <ListingjobForm 
@@ -48,11 +49,14 @@ class Listingjob extends Component{
                 Jobdes = {notes.Jobdes}
                 Wages = {notes.Wages}
                 Amount = {notes.Amount}
+                Currentnumber = {notes.Currentnumber}
+                Currentemployer = {notes.Currentemployer}
                 Date = {notes.Date}
                 Begintime = {notes.Begintime}
                 Endtime = {notes.Endtime}
                 Location = {notes.Location}
                 Employee = {notes.Employee}
+                Workkey = {notes.Workkey}
                 />
                 <br/>
                 </div>
