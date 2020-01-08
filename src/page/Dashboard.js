@@ -3,6 +3,7 @@ import fire from '../config/Fire';
 import LoginForm from '../components/LoginForm';
 import {Grid,Button,TextField} from '@material-ui/core';
 import JobCard from '../components/JobCard';
+
 import '../style.css';
 import ListingjobForm from '../components/ListingjobForm';
 
@@ -16,6 +17,21 @@ class Dashboard extends Component{
         }
         this.database = fire.database().ref("ListingJob");
       }
+    componentDidMount(){
+        this.database.on('value', snap =>{
+            var list2 = this.state.listing;
+            for(var x in snap.val()){
+                list2.push(snap.val()[x]);
+                
+            }         
+            
+            this.setState({
+                listing:list2,
+            })
+            
+        })
+    }
+    
 
 
     componentWillMount(){

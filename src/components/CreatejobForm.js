@@ -73,6 +73,7 @@ class CreatejobForm extends Component{
             selectedDate: newdate
         })
     }
+    //why handle time must have two function    
     handleBeginTimeChange = time => {
         this.setState({
             selectedBegintime: time
