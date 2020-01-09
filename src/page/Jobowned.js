@@ -5,6 +5,7 @@ import fire from '../config/Fire';
 import LoginForm from '../components/LoginForm'
 import Dashboard from './Dashboard';
 import ListingjobForm from '../components/ListingjobForm';
+import ListingjobFormEmployer from '../components/ListingjobFormEmployer';
 
 class Jobowned extends Component{
 
@@ -44,7 +45,7 @@ class Jobowned extends Component{
               if(fire.auth().currentUser.email == notes.Employee){
                 return (
                     <div>
-                      <ListingjobForm 
+                      <ListingjobFormEmployer 
                       Jobname = {notes.Jobname}
                       Jobdes = {notes.Jobdes}
                       Wages = {notes.Wages}
