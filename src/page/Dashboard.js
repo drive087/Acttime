@@ -14,21 +14,39 @@ class Dashboard extends Component{
             keysearch:"",
             listing:[],
         }
-        this.database = fire.database().ref("ListingJob");
+        this.database = fire.database().ref("ListingJob").orderByChild('/Jobname');
       }
-    componentDidMount(){
+    fetchData(){
+        var list2 = [];
+        
         this.database.on('value', snap =>{
-            var list2 = this.state.listing;
-            for(var x in snap.val()){
-                list2.push(snap.val()[x]);
+            console.log(snap);
+            var list2 = snap.val().filter((data) => {
+                return data.Jobname.indexOf(this.state.keysearch)!==-1;
+            });
+            /*for(var x in snap.val()){
                 
-            }         
+                    list2.push(snap.val()[x]);
+                }*/
             
             this.setState({
                 listing:list2,
             })
+            console.log(list2);
             
         })
+    }
+    componentDidMount(){
+     
+    }
+    componentDidUpdate(prevProps,prevState){
+
+        if (prevState.keysearch != this.state.keysearch){
+            this.fetchData()
+            
+        }
+        
+
     }
     
 
@@ -39,8 +57,12 @@ class Dashboard extends Component{
                 
                 <h1>Welcome!! User</h1>
                 <h1>Find Job</h1>
-                <TextField id="filled-search" label="Search field" type="search" variant="outlined" fullWidth/>
+                {this.state.keysearch}
+                <TextField id="filled-search" label="Search field" type="search" variant="outlined" fullWidth onChange={(e)=>{
+                    this.setState({keysearch:e.target.value});
+                }}/>
                 <p>heve to make search real time</p>
+                
                 
 
                 {this.state.listing.map((data)=>{
