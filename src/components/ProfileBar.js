@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import fire from '../config/Fire';
 import '../style.css';
 
+
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
@@ -45,11 +46,14 @@ class ProfileBar extends Component {
 
     onLogout() {
         fire.auth().signOut();
+        return(<Redirect to='/' />)
     }
 
     render(){
         var user = fire.auth().currentUser;
+
         
+
         if(user){
             return(<div style={{display:'flex',flexDirection:'row'}} id='profileNavName'>
                 <h3>{fire.auth().currentUser.email}</h3>

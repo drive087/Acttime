@@ -45,7 +45,7 @@ class Login extends Component{
         
         if (user){
             console.log('login');
-            return <Redirect to='/dashboard' />;
+            return (<Redirect to='/dashboard' />);
         }
         else{
             console.log('Notlogin');

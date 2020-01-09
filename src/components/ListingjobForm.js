@@ -76,10 +76,35 @@ class ListingjobForm extends Component{
       var email = fire.auth().currentUser.email;
       var indexofat = email.indexOf('@');
       var subemail = email.substring(0,indexofat);
+      if(this.Employee.includes(subemail)){
+        return(
+          <Card id="ListingJobForm" style={{marginBottom:'20px'}}>
+            <div>
+              <Grid style={{display:'flex'}}>
+                <Grid item md={10}>
+                <h1>Title : {this.Jobname}</h1>
+                <h3>Description : {this.Jobdes}</h3>
+                <p>Wages:{this.Wages}</p>
+                <p>Date:{this.Date}</p>
+                <p>BeginTime:{this.Begintime}</p>
+                <p>EndTime:{this.Endtime}</p>
+                <p>Location:{this.Location}</p>
+                <p>Employee:{this.Employee}</p>
+                </Grid>
+                <Grid item md={2}>
+                  <h1>Owner</h1>
+                  <h1>{this.Currentnumber}/{this.Amount}</h1>
+                </Grid>
+              </Grid>        
+            </div>
+          
+          </Card>
+        );
+      }
       if(this.Currentemployer.includes(subemail) ){
        
         return(
-          <Card id="ListingJobForm">
+          <Card id="ListingJobForm" style={{marginBottom:'20px'}}>
             <div>
               <Grid style={{display:'flex'}}>
                 <Grid item md={10}>
@@ -103,7 +128,7 @@ class ListingjobForm extends Component{
         );
       }
       return(
-        <Card id="ListingJobForm">
+        <Card id="ListingJobForm" style={{marginBottom:'20px'}}>
           <div>
             <Grid style={{display:'flex'}}>
               <Grid item md={10}>
@@ -119,6 +144,7 @@ class ListingjobForm extends Component{
               </Grid>
               <Grid item md={2}>
                 <Button variant="contained" color="primary" onClick={this.onGetjob}>Get Job</Button>
+                <h1>{this.Currentnumber}/{this.Amount}</h1>
               </Grid>
             </Grid>        
           </div>
@@ -127,7 +153,7 @@ class ListingjobForm extends Component{
       );
     }
     return(
-      <Card id="ListingJobForm">
+      <Card id="ListingJobForm" style={{marginBottom:'20px'}}>
         <div>
           <Grid style={{display:'flex'}}>
             <Grid item md={10}>
@@ -142,7 +168,7 @@ class ListingjobForm extends Component{
             <p>Employee:{this.Employee}</p>
             </Grid>
             <Grid item md={2}>
-              <Button variant="contained" color="secondary" disabled>Full</Button>
+              <h1>Full</h1>
             </Grid>
           </Grid>        
         </div>
