@@ -32,43 +32,52 @@ class Listingjob extends Component {
 
         })
     }
+    renderList() {
 
-
-    render() {
         var email = fire.auth().currentUser.email;
         var indexofat = email.indexOf('@');
         var subemail = email.substring(0, indexofat);
+        if (this.state.listing.length == 0) {
+            return (
+                <h1> Dont have any Job here</h1>
+            )
+        } else {
+            return (
+                this.state.listing.map((notes) => {
+                    var Currentemployer = notes.Currentemployer;
+                    if (Currentemployer.includes(subemail)) {
+                        return (
+                            <div>
+                                <ListingjobForm
+                                    Jobname={notes.Jobname}
+                                    Jobdes={notes.Jobdes}
+                                    Wages={notes.Wages}
+                                    Amount={notes.Amount}
+                                    Currentnumber={notes.Currentnumber}
+                                    Currentemployer={notes.Currentemployer}
+                                    Date={notes.Date}
+                                    Begintime={notes.Begintime}
+                                    Endtime={notes.Endtime}
+                                    Location={notes.Location}
+                                    Employee={notes.Employee}
+                                    Workkey={notes.Workkey}
+                                />
+                                <br />
+                            </div>
+                        )
+                    }
+                })
+            )
+        }
+    }
+
+
+    render() {
 
         return (
-            <div style={{ marginLeft: '10%', marginTop: '5%',width:'80%' }}>
+            <div style={{ marginLeft: '10%', marginTop: '5%', width: '80%' }}>
                 <h1>Your Job</h1>
-                {
-                    this.state.listing.map((notes) => {
-                        var Currentemployer = notes.Currentemployer;
-                        if (Currentemployer.includes(subemail)) {
-                            return (
-                                <div>
-                                    <ListingjobForm
-                                        Jobname={notes.Jobname}
-                                        Jobdes={notes.Jobdes}
-                                        Wages={notes.Wages}
-                                        Amount={notes.Amount}
-                                        Currentnumber={notes.Currentnumber}
-                                        Currentemployer={notes.Currentemployer}
-                                        Date={notes.Date}
-                                        Begintime={notes.Begintime}
-                                        Endtime={notes.Endtime}
-                                        Location={notes.Location}
-                                        Employee={notes.Employee}
-                                        Workkey={notes.Workkey}
-                                    />
-                                    <br />
-                                </div>
-                            )
-                        }
-
-                    })
-                }
+                {this.renderList()}
             </div>
 
         );

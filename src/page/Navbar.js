@@ -153,7 +153,7 @@ export default function PersistentDrawerLeft() {
       
       <Router>
 
-          <div>
+          <div >
             <Route exact path="/" component={Landing} />
             <Route path="/login" component={Login} />
 

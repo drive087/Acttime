@@ -16,6 +16,7 @@ class Dashboard extends Component {
             listing: [],
         }
         this.database = fire.database().ref("ListingJob");
+        this.renderList = this.renderList.bind(this);
     }
     componentDidMount() {
         this.database.on('value', snap => {
@@ -31,9 +32,38 @@ class Dashboard extends Component {
 
         })
     }
-
-
-
+    renderList(){
+        if (this.state.listing.length==0){
+            return (
+                <h1> dont have any job</h1>
+            )
+        }
+        return (
+            
+                this.state.listing.map((notes) => {
+                    return (
+                        <div md={12}>
+                            <ListingjobForm
+                                Jobname={notes.Jobname}
+                                Jobdes={notes.Jobdes}
+                                Wages={notes.Wages}
+                                Amount={notes.Amount}
+                                Date={notes.Date}
+                                Begintime={notes.Begintime}
+                                Endtime={notes.Endtime}
+                                Location={notes.Location}
+                                Employee={notes.Employee}
+                                Workkey={notes.Workkey}
+                                Currentnumber={notes.Currentnumber}
+                                Currentemployer={notes.Currentemployer}
+                            />
+                            <br />
+                        </div>
+                    )
+                })
+            
+        )
+    }
     componentWillMount() {
     
     }
@@ -48,31 +78,9 @@ class Dashboard extends Component {
                 <p>heve to make search real time</p>
                 <div style={{ marginTop: '5%' }}>
                     <h1>Listing Job</h1>
-                    {
-                        this.state.listing.map((notes) => {
-                            return (
-                                <div md={12}>
-                                    <ListingjobForm
-                                        Jobname={notes.Jobname}
-                                        Jobdes={notes.Jobdes}
-                                        Wages={notes.Wages}
-                                        Amount={notes.Amount}
-                                        Date={notes.Date}
-                                        Begintime={notes.Begintime}
-                                        Endtime={notes.Endtime}
-                                        Location={notes.Location}
-                                        Employee={notes.Employee}
-                                        Workkey={notes.Workkey}
-                                        Currentnumber={notes.Currentnumber}
-                                        Currentemployer={notes.Currentemployer}
-                                    />
-                                    <br />
-                                </div>
-                            )
-                        })
-                    }
+                    
                 </div>
-
+                {this.renderList()}
 
             </div>);
 
