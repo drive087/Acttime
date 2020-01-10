@@ -102,29 +102,29 @@ class ListingjobForm extends Component {
 render(){
 
 
-      return (
-        <Card id="ListingJobForm" style={{ marginBottom: '20px' }}>
-          <div>
-            <Grid style={{ display: 'flex' }}>
-              <Grid item md={10}>
-                <h1>Title : {this.Jobname}</h1>
-                <h3>Description : {this.Jobdes}</h3>
-                <p>Wages:{this.Wages}</p>
-                <p>Date:{this.Date}</p>
-                <p>BeginTime:{this.Begintime}</p>
-                <p>EndTime:{this.Endtime}</p>
-                <p>Location:{this.Location}</p>
-                <p>Employee:{this.Employee}</p>
-              </Grid>
-              <Grid item md={2}>
-                {red()}
-              </Grid>
-            </Grid>
-          </div>
+  return (
+    <Card id="ListingJobForm" style={{ marginBottom: '20px' }}>
+      <div>
+        <Grid style={{ display: 'flex' }}>
+          <Grid item md={10}>
+            <h1>Title : {this.Jobname}</h1>
+            <h3>Description : {this.Jobdes}</h3>
+            <p>Wages:{this.Wages}</p>
+            <p>Date:{this.Date}</p>
+            <p>BeginTime:{this.Begintime}</p>
+            <p>EndTime:{this.Endtime}</p>
+            <p>Location:{this.Location}</p>
+            <p>Employee:{this.Employee}</p>
+          </Grid>
+          <Grid item md={2}>
+            {red()}
+          </Grid>
+        </Grid>
+      </div>
 
-        </Card>
-      );
-    }
+    </Card>
+  );
+}
 
 ListingjobForm.propTypes = {
   Jobname: PropTypes.string,

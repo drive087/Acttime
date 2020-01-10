@@ -40,7 +40,7 @@ class Listingjob extends Component {
         var subemail = email.substring(0, indexofat);
 
         return (
-            <div style={{ marginLeft: '15%', marginTop: '5%' }}>
+            <div style={{ marginLeft: '10%', marginTop: '5%',width:'80%' }}>
                 <h1>Your Job</h1>
                 {
                     this.state.listing.map((notes) => {

@@ -46,12 +46,12 @@ class Dashboard extends Component {
                 <h1>Find Job</h1>
                 <TextField id="filled-search" label="Search field" type="search" variant="outlined" fullWidth />
                 <p>heve to make search real time</p>
-                <div style={{ marginLeft: '15%', marginTop: '5%' }}>
+                <div style={{ marginTop: '5%' }}>
                     <h1>Listing Job</h1>
                     {
                         this.state.listing.map((notes) => {
                             return (
-                                <div>
+                                <div md={12}>
                                     <ListingjobForm
                                         Jobname={notes.Jobname}
                                         Jobdes={notes.Jobdes}
