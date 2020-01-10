@@ -22,7 +22,33 @@ class CreatejobForm extends Component{
         selectedBegintime: null,
         selectedEndtime: null,
         checkCreatejob: false,
+        Workkey:''
     }
+    this.database = fire.database().ref("ListingJob");
+
+    this.database.on('value', snap =>{
+        
+        var max = 0;
+
+        for (var x in snap.val()){
+            
+            if(x[0]=='J'){
+                var y = parseInt(x.substring(1,));
+                if(y>max){
+                    max=y;
+                }
+            }
+        }
+        max = max+1;
+        this.setState({
+            Workkey:'J'+max.toString()
+        })
+        console.log(this.state.Workkey);
+        
+        
+    })
+
+    
   }
 
     formatDate(date) {
@@ -59,7 +85,9 @@ class CreatejobForm extends Component{
         })
     }       
  
-  
+   
+
+
   onCreatejob(){
     var jobname = document.getElementById('jobname').value;
     var jobdes = document.getElementById('jobdescription').value;
@@ -73,25 +101,30 @@ class CreatejobForm extends Component{
 
     var firebaseRef = fire.database().ref('ListingJob');
   
-    firebaseRef.push({
+    firebaseRef.child(this.state.Workkey).update({
         Jobname:jobname,
         Jobdes:jobdes,
         Wages:wages,
         Amount:amount,
+        Currentnumber:0,
+        Currentemployer:'',
         Date:date,
         Location:location,
         Begintime:begintime,
         Endtime:endtime,
-        Employee:auth.currentUser.email
-      }).then(
-            this.setState({
-                checkCreatejob:true,
-            })
-          );
+        Employee:auth.currentUser.email,
+        Workkey:this.state.Workkey,
+    }).then(
+        this.setState({
+            checkCreatejob:true,
+        })
+      );
+    
 
       
     alert("Success!!");
 
+ 
     
 
     }
@@ -99,6 +132,7 @@ class CreatejobForm extends Component{
 
 
   render(){
+    console.log(this.Workkey);
     if(!this.state.checkCreatejob){
         return (
 
