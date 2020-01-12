@@ -51,11 +51,13 @@ class RegisterForm extends Component{
 
     const auth = fire.auth();
 
-    auth.createUserWithEmailAndPassword(document.getElementById('email').value,document.getElementById('pass').value);
+    auth.createUserWithEmailAndPassword(document.getElementById('email').value,document.getElementById('pass').value)
+    .then(
+      fire.auth().signOut);
     //if this line bug want happen next
     alert("Registration Success!!");
     
-    fire.auth().signOut();
+    
     this.setState({
       Checkregister:true
     })

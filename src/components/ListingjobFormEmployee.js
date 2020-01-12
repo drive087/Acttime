@@ -8,7 +8,7 @@ import '../style.css';
 import  { Redirect } from 'react-router-dom';
 
 
-class ListingjobForm extends Component{
+class ListingjobFormEmployee extends Component{
 
   constructor(props) {
     super(props);
@@ -24,11 +24,8 @@ class ListingjobForm extends Component{
     this.Workkey = props.Workkey;
     this.Currentnumber = props.Currentnumber;
     this.Currentemployer = props.Currentemployer;
-
-    this.state ={
-      checkgetjobalready:false,
-      
-    }
+    this.Status = props.Status;
+    
 
     this.onGetjob = this.onGetjob.bind(this);
 
@@ -71,87 +68,6 @@ class ListingjobForm extends Component{
 
   render(){
     
-    
-    if(this.Currentnumber<this.Amount){
-      var email = fire.auth().currentUser.email;
-      var indexofat = email.indexOf('@');
-      var subemail = email.substring(0,indexofat);
-      if(this.Employee.includes(subemail)){
-        return(
-          <Card id="ListingJobForm" style={{marginBottom:'20px'}}>
-            <div>
-              <Grid style={{display:'flex'}}>
-                <Grid item md={10}>
-                <h1>Title : {this.Jobname}</h1>
-                <h3>Description : {this.Jobdes}</h3>
-                <p>Wages:{this.Wages}</p>
-                <p>Date:{this.Date}</p>
-                <p>BeginTime:{this.Begintime}</p>
-                <p>EndTime:{this.Endtime}</p>
-                <p>Location:{this.Location}</p>
-                <p>Employee:{this.Employee}</p>
-                </Grid>
-                <Grid item md={2}>
-                  <h1>Owner</h1>
-                  <h1>{this.Currentnumber}/{this.Amount}</h1>
-                </Grid>
-              </Grid>        
-            </div>
-          
-          </Card>
-        );
-      }
-      if(this.Currentemployer.includes(subemail) ){
-       
-        return(
-          <Card id="ListingJobForm" style={{marginBottom:'20px'}}>
-            <div>
-              <Grid style={{display:'flex'}}>
-                <Grid item md={10}>
-                <h1>Title : {this.Jobname}</h1>
-                <h3>Description : {this.Jobdes}</h3>
-                <p>Wages:{this.Wages}</p>
-                <p>{this.Currentnumber}/{this.Amount}</p>
-                <p>Date:{this.Date}</p>
-                <p>BeginTime:{this.Begintime}</p>
-                <p>EndTime:{this.Endtime}</p>
-                <p>Location:{this.Location}</p>
-                <p>Employee:{this.Employee}</p>
-                </Grid>
-                <Grid item md={2}>
-                  <Button variant="contained" disabled>Ouccipied Already</Button>
-                </Grid>
-              </Grid>        
-            </div>
-          
-          </Card>
-        );
-      }
-      return(
-        <Card id="ListingJobForm" style={{marginBottom:'20px'}}>
-          <div>
-            <Grid style={{display:'flex'}}>
-              <Grid item md={10}>
-              <h1>Title : {this.Jobname}</h1>
-              <h3>Description : {this.Jobdes}</h3>
-              <p>Wages:{this.Wages}</p>
-              <p>{this.Currentnumber}/{this.Amount}</p>
-              <p>Date:{this.Date}</p>
-              <p>BeginTime:{this.Begintime}</p>
-              <p>EndTime:{this.Endtime}</p>
-              <p>Location:{this.Location}</p>
-              <p>Employee:{this.Employee}</p>
-              </Grid>
-              <Grid item md={2}>
-                <Button variant="contained" color="primary" onClick={this.onGetjob}>Get Job</Button>
-                <h1>{this.Currentnumber}/{this.Amount}</h1>
-              </Grid>
-            </Grid>        
-          </div>
-        
-        </Card>
-      );
-    }
     return(
       <Card id="ListingJobForm" style={{marginBottom:'20px'}}>
         <div>
@@ -168,7 +84,7 @@ class ListingjobForm extends Component{
             <p>Employee:{this.Employee}</p>
             </Grid>
             <Grid item md={2}>
-              <h1>Full</h1>
+              <h1>{this.Status}</h1>
             </Grid>
           </Grid>        
         </div>
@@ -180,7 +96,7 @@ class ListingjobForm extends Component{
 
 }
 
-ListingjobForm.propTypes = {
+ListingjobFormEmployee.propTypes = {
     Jobname: PropTypes.string,
     Jobdes: PropTypes.string,
     Wages: PropTypes.string,
@@ -190,6 +106,7 @@ ListingjobForm.propTypes = {
     Endtime: PropTypes.string,
     Location: PropTypes.string,
     Employee: PropTypes.string,
-    Workkey: PropTypes.string
+    Workkey: PropTypes.string,
+    Status: PropTypes.string
 }
-export default ListingjobForm;
+export default ListingjobFormEmployee;

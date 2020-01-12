@@ -58,6 +58,7 @@ class Jobowned extends Component{
                       Location = {notes.Location}
                       Employee = {notes.Employee}
                       Workkey = {notes.Workkey}
+                      Status = {notes.Status}
                       />
                       <br/>
                       </div>

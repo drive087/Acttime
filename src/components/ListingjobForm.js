@@ -58,7 +58,7 @@ class ListingjobForm extends Component{
           
           firebaseRef.update({
               Currentnumber:newnum2,
-              Currentemployer:newemp2
+              Currentemployer:newemp2,
           })
            
         });
@@ -82,6 +82,7 @@ class ListingjobForm extends Component{
             <div>
               <Grid style={{display:'flex'}}>
                 <Grid item md={10}>
+                <h1>Owner</h1>
                 <h1>Title : {this.Jobname}</h1>
                 <h3>Description : {this.Jobdes}</h3>
                 <p>Wages:{this.Wages}</p>
@@ -92,7 +93,6 @@ class ListingjobForm extends Component{
                 <p>Employee:{this.Employee}</p>
                 </Grid>
                 <Grid item md={2}>
-                  <h1>Owner</h1>
                   <h1>{this.Currentnumber}/{this.Amount}</h1>
                 </Grid>
               </Grid>        
@@ -169,6 +169,7 @@ class ListingjobForm extends Component{
             </Grid>
             <Grid item md={2}>
               <h1>Full</h1>
+              <h1>{this.Currentnumber}/{this.Amount}</h1>
             </Grid>
           </Grid>        
         </div>
@@ -190,6 +191,7 @@ ListingjobForm.propTypes = {
     Endtime: PropTypes.string,
     Location: PropTypes.string,
     Employee: PropTypes.string,
-    Workkey: PropTypes.string
+    Workkey: PropTypes.string,
+    Status: PropTypes.string
 }
 export default ListingjobForm;

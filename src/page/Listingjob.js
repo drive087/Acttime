@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import fire from '../config/Fire';
 import LoginForm from '../components/LoginForm'
 import Dashboard from './Dashboard';
-import ListingjobForm from '../components/ListingjobForm';
+import ListingjobFormEmployee from '../components/ListingjobFormEmployee';
 
 class Listingjob extends Component{
 
@@ -48,7 +48,7 @@ class Listingjob extends Component{
                 if(Currentemployer.includes(subemail)){
                     return (
                         <div>
-                          <ListingjobForm 
+                          <ListingjobFormEmployee
                           Jobname = {notes.Jobname}
                           Jobdes = {notes.Jobdes}
                           Wages = {notes.Wages}
@@ -61,6 +61,7 @@ class Listingjob extends Component{
                           Location = {notes.Location}
                           Employee = {notes.Employee}
                           Workkey = {notes.Workkey}
+                          Status = {notes.Status}
                           />
                           <br/>
                           </div>

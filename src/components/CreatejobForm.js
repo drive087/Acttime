@@ -114,6 +114,7 @@ class CreatejobForm extends Component{
         Endtime:endtime,
         Employee:auth.currentUser.email,
         Workkey:this.state.Workkey,
+        Status:'Wait'
     }).then(
         this.setState({
             checkCreatejob:true,
